@@ -61,6 +61,7 @@ def main():
 
             # Display the cleaned response
             st.subheader("Gift Suggestions")
+            st.balloons()
             st.markdown(cleaned_assessment_str)
 
         except Exception as e:
