@@ -20,6 +20,19 @@ gift_suggestion_agent = Agent(
     markdown=True,
 )
 
+def get_user_country():
+    try:
+        # Using the ipinfo.io API to get the user's country based on IP address
+        response = requests.get("https://ipinfo.io")
+        if response.status_code == 200:
+            data = response.json()
+            country = data.get('country', 'Unknown')
+            return country
+        else:
+            return 'Unknown'
+    except Exception as e:
+        return 'Unknown'
+
 def clean_output(output):
     # Regular expression to remove content between "## Instructions" and the next "##"
     output = re.sub(r'## Instructions.*?##', '', output, flags=re.DOTALL)
@@ -30,7 +43,8 @@ def clean_output(output):
     return output
 
 def main():
-    st.title("Personalized Gift Suggestion App with Web Search")
+    st.title("Personalized Gift Suggestion with Web Search( AI Agent )")
+    user_country = get_user_country()
 
     with st.form(key='gift_form'):
         age = st.number_input("Enter the person's age:", min_value=0, max_value=120, step=1)
@@ -45,6 +59,7 @@ def main():
             f"Suggest gift ideas for a {age}-year-old {gender} for {occasion}."
             f" Hobbies and interests: {hobbies if hobbies else 'Not specified'}."
             f" Budget: {budget} INR."
+            f"User's country: {user_country}."
         )
         try:
             # Get assessment result as a string
