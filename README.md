@@ -1,4 +1,4 @@
-# Personalized Gift Suggestion App
+# Personalized Gift Suggestion App (AI Agent)
 
 A web-based app built with Streamlit that provides personalized gift suggestions based on a person's age, gender, occasion, hobbies, and budget. The app uses an AI agent powered by Groq for generating suggestions, and DuckDuckGo for web search.
 
