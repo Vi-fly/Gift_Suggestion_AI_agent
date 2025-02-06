@@ -10,8 +10,7 @@ A web-based app built with Streamlit that provides personalized gift suggestions
   - Occasion
   - Hobbies and Interests
   - Budget
-- Use of DuckDuckGo API to gather relevant gift ideas.
-- Clean up the output to remove unnecessary content.
+- Use of DuckDuckGo to gather relevant gift ideas.
 - Display suggestions in a formatted way for easy readability.
 
 ## Requirements
