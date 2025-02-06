@@ -1,5 +1,6 @@
 streamlit
-python-dotenv
-phi
 requests
+python-dotenv
+phidata
+groq
 duckduckgo-search
