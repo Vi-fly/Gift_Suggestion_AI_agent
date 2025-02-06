@@ -22,8 +22,12 @@ gift_suggestion_agent = Agent(
 
 def clean_output(output):
     # Regular expression to remove content between "## Instructions" and the next "##"
-    cleaned_output = re.sub(r'## Instructions.*?##', '', output, flags=re.DOTALL)
-    return cleaned_output
+    output = re.sub(r'## Instructions.*?##', '', output, flags=re.DOTALL)
+    
+    # Remove everything from "name=None" and onwards
+    output = re.sub(r'name=None*', '', output, flags=re.DOTALL)
+    
+    return output
 
 def main():
     st.title("Personalized Gift Suggestion App with Web Search")
@@ -49,7 +53,7 @@ def main():
             if assessment_str.startswith("content="):
                 assessment_str = assessment_str.replace("content=", "", 1)
 
-            # Clean up the output by removing the "## Instructions" section
+            # Clean up the output by removing the "## Instructions" section and content after "name=None"
             cleaned_assessment_str = clean_output(assessment_str)
 
             # Clean and decode the assessment string for display
