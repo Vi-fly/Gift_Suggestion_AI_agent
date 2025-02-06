@@ -51,7 +51,7 @@ def main():
             suggestions = gift_suggestion_agent.run(prompt)
             assessment_str = str(suggestions)
             if assessment_str.startswith("content="):
-                assessment_str = assessment_str.replace("content='", "", 1)
+                assessment_str = assessment_str.replace('content="', "", 1)
 
             # Clean up the output by removing the "## Instructions" section and content after "name=None"
             cleaned_assessment_str = clean_output(assessment_str)
