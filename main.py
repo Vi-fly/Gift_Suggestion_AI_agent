@@ -25,7 +25,7 @@ def clean_output(output):
     output = re.sub(r'## Instructions.*?##', '', output, flags=re.DOTALL)
     
     # Remove everything from "name=None" and onwards
-    output = re.sub(r'name=None*', '', output, flags=re.DOTALL)
+    output = re.sub(r'name=None.*', '', output, flags=re.DOTALL)
     
     return output
 
