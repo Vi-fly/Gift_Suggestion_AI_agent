@@ -15,7 +15,7 @@ gift_suggestion_agent = Agent(
     model=Groq(id="llama-3.3-70b-versatile"),
     tools=[DuckDuckGo()],
     instructions=[
-        """Consider the person's age, gender, occasion, hobbies, interests, and budget. Use the DuckDuckGo tool to search for relevant gift ideas. Provide a list of gift suggestions tailored to the provided information. Include a brief explanation and source for each suggestion. Ensure the suggestions are appropriate for the specified occasion and within the budget range. Give answer like a complete txt file with all the details."""
+        """Consider the person's age, gender, occasion, hobbies, interests, and budget. Use the DuckDuckGo tool to search for relevant gift ideas. Provide a list of gift suggestions tailored to the provided information. Include a brief explanation and source for each suggestion. Ensure the suggestions are appropriate for the specified occasion and within the budget range."""
     ],
     markdown=True,
 )
@@ -51,7 +51,7 @@ def main():
             suggestions = gift_suggestion_agent.run(prompt)
             assessment_str = str(suggestions)
             if assessment_str.startswith("content="):
-                assessment_str = assessment_str.replace("content=", "", 1)
+                assessment_str = assessment_str.replace("content='", "", 1)
 
             # Clean up the output by removing the "## Instructions" section and content after "name=None"
             cleaned_assessment_str = clean_output(assessment_str)
