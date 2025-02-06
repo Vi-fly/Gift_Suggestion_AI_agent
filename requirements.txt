@@ -4,4 +4,3 @@ python-dotenv
 phidata
 groq
 duckduckgo-search
-re
